@@ -26,7 +26,7 @@ with open('C:/Users/edgar/CLionProjects/sem-3-model-2/cmake-build-debug/deltas.t
     for line in lines:
         if line != '':
             d = line.split(';')
-            rads.append(int(float(d[0]) * 100000))
+            rads.append(int(float(d[0]) * 200000))
             deltas.append(int(d[1]))
 
     root = tk.Tk()
@@ -37,7 +37,7 @@ with open('C:/Users/edgar/CLionProjects/sem-3-model-2/cmake-build-debug/deltas.t
     tk.Canvas.create_circle = _create_circle
 
     for i in range(len(rads)):
-        canvas.create_circle(400, 400, rads[i], outline=_from_rgb((0, make_color(deltas[i]) // 2, make_color(deltas[i]) // 2)), width=1)
+        canvas.create_circle(400, 400, rads[i], outline=_from_rgb((make_color(deltas[i]) // 3, make_color(deltas[i]) // 1, make_color(deltas[i]) // 2)), width=1.5)
 
     root.title("Circles and Arcs")
     root.mainloop()
