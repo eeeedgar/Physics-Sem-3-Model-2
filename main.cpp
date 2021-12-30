@@ -13,16 +13,18 @@ double y(double x)
 
 int main()
 {
-    R = 0.36;
-    angle_deg = 1;
-    wave_length = 0.0000005;
+    double wave_len_nano;
+    double dx;
+    ifstream config("config.txt");
+    config >> R >> angle_deg >> wave_len_nano >> dx;
+    config.close();
+    wave_length = wave_len_nano / 1000000000;
     angle_rad = angle_deg * M_PI / 90;
     r = R * sin(angle_rad / 2);
 
     ofstream delta_w("deltas.txt");
     delta_w.clear();
 
-    double dx = 0.00001;
     double cur_x = 0;
     while (cur_x <= r)
     {
